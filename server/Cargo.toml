@@ -1,0 +1,18 @@
+[package]
+name = "biurs-server"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.71"
+async-trait = "0.1.68"
+biurs-core = { version = "0.1.0", path = "../core" }
+clap = { version = "4.2.7", features = ["derive"] }
+filetime = "0.2.21"
+tokio = { version = "1.28.0", features = ["fs", "rt-multi-thread"] }
+tonic = "0.9.2"
+tracing = "0.1.37"
+tracing-subscriber = "0.3.17"
+walkdir = "2.3.3"

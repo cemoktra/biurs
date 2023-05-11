@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package biurs.v1;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+service BackItUp {
+  rpc Status(StatusRequest) returns (StatusResponse);
+  rpc List(ListRequest) returns (ListResponse);
+  rpc Upload(stream UploadRequest) returns (UploadResponse);
+  rpc Download(DownloadRequest) returns (stream DownloadResponse);
+}
+
+message Metadata {
+  string file = 1;
+  bytes content_hash = 2;
+  google.protobuf.Timestamp modified_at = 3;
+}
+
+message StatusRequest {
+  string file = 1;
+  bytes content_hash = 2;
+  google.protobuf.Timestamp modified_at = 3;
+}
+
+message StatusResponse {
+  oneof status {
+    google.protobuf.Empty missing = 1;
+    Mismatch mismatch = 2;
+    google.protobuf.Empty match = 3;
+  }
+}
+
+message ListRequest {}
+
+message ListResponse {
+  repeated Metadata list = 1;
+}
+
+message Mismatch {
+  google.protobuf.Timestamp server_modified_at = 1;
+  google.protobuf.Timestamp client_modified_at = 2;
+}
+
+message UploadRequest {
+  oneof chunk {
+    Metadata meta = 1;
+    bytes data = 2;
+  }
+}
+
+message UploadResponse {}
+
+message DownloadRequest {
+  string file = 1;
+}
+
+message DownloadResponse {
+  oneof chunk {
+    Metadata meta = 1;
+    bytes data = 2;
+  }
+}
