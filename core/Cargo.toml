@@ -2,6 +2,8 @@
 name = "biurs-core"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+description = "core library for biurs"
 
 [build-dependencies]
 tonic-build = "0.9.2"
