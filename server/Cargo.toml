@@ -4,13 +4,17 @@ version = "0.2.0"
 edition = "2021"
 license = "MIT"
 description = "biurs server"
+readme = "../README.md"
+homepage = "https://github.com/cemoktra/biurs"
+repository = "https://github.com/cemoktra/biurs"
+keywords = ["backup", "restore"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 anyhow = "1.0.71"
 async-trait = "0.1.68"
-biurs-core = { version = "0.1.0", path = "../core" }
+biurs-core = { version = "0.2.0", path = "../core" }
 clap = { version = "4.2.7", features = ["derive"] }
 directories = "5.0.1"
 filetime = "0.2.21"
