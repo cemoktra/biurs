@@ -1,5 +1,6 @@
 use std::{path::PathBuf, time::SystemTime};
 
+pub mod auth;
 pub mod download;
 pub mod list;
 pub mod status;
