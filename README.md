@@ -13,8 +13,5 @@ Server: `biurs-server <backup-dir>`
 Client: `biurs <url> backup/restore`
 
 ## Status
-Works without authentication, so only in private network where the port is not exposed.
-
-## Plans
-- [ ] authentication 
+- [x] authentication 
 - [ ] concurrent execution
