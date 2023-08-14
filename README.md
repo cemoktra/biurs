@@ -40,4 +40,4 @@ Client: `biurs <url> backup/restore`
 
 ## Status
 - [x] authentication 
-- [ ] concurrent execution
+- [x] concurrent execution
