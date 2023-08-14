@@ -6,7 +6,7 @@ members = [
 ]
 
 [workspace.dependencies]
-biurs-core = { version = "0.2.0", path = "core" }
+biurs-core = { version = "0.2.1", path = "core" }
 
 anyhow = "1.0.72"
 async-trait = "0.1.73"
