@@ -184,13 +184,14 @@ checksum = "b4682ae6287fcf752ecaabbfcc7b6f9b72aa33933dc23a554d853aea8eea8635"
 
 [[package]]
 name = "biurs"
-version = "0.3.0"
+version = "0.3.1"
 dependencies = [
  "anyhow",
  "biurs-core",
  "clap",
  "directories",
  "filetime",
+ "fxhash",
  "jsonwebtoken",
  "serde",
  "serde_json",
@@ -202,7 +203,7 @@ dependencies = [
 
 [[package]]
 name = "biurs-core"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "async-trait",
  "futures",
@@ -221,7 +222,7 @@ dependencies = [
 
 [[package]]
 name = "biurs-server"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -245,6 +246,12 @@ name = "bumpalo"
 version = "3.13.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a3e2c3daef883ecc1b5d58c15adae93470a91d425f3532ba1695849656af3fc1"
+
+[[package]]
+name = "byteorder"
+version = "1.4.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "14c189c53d098945499cdfa7ecc63567cf3886b3332b312a5b4585d8d3a6a610"
 
 [[package]]
 name = "bytes"
@@ -485,6 +492,15 @@ dependencies = [
  "pin-project-lite",
  "pin-utils",
  "slab",
+]
+
+[[package]]
+name = "fxhash"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c31b6d751ae2c7f11320402d34e41349dd1016f8d5d45e48c4312bc8625af50c"
+dependencies = [
+ "byteorder",
 ]
 
 [[package]]

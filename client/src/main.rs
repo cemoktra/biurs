@@ -1,5 +1,4 @@
 use std::{
-    collections::hash_map::DefaultHasher,
     hash::{Hash, Hasher},
     path::PathBuf,
     sync::Arc,
@@ -7,6 +6,7 @@ use std::{
 };
 
 use biurs_core::client::Client;
+use fxhash::FxHasher;
 use tokio::{io::AsyncWriteExt, task::JoinHandle};
 
 #[derive(clap::Parser)]
@@ -40,7 +40,7 @@ async fn backup_file(
 
     let data = tokio::fs::read(&filepath).await?;
     let meta = tokio::fs::metadata(&filepath).await?;
-    let mut hasher = DefaultHasher::new();
+    let mut hasher = FxHasher::default();
     data.hash(&mut hasher);
     let content_hash = hasher.finish().to_be_bytes().to_vec();
 
