@@ -21,6 +21,7 @@ struct Args {
 enum SubCommand {
     Backup,
     Restore,
+    List
 }
 
 #[derive(serde::Deserialize)]
@@ -214,6 +215,15 @@ async fn main() -> anyhow::Result<()> {
 
             for task in restore_tasks {
                 task.await??;
+            }
+        }
+
+        SubCommand::List => {
+            tracing::info!("listing remote files");
+            let metas = client.list(&auth_token).await?;
+
+            for meta in metas {
+                tracing::info!("{}", meta.file.display());
             }
         }
     }
