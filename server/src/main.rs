@@ -3,7 +3,7 @@ use std::{
     path::{Path, PathBuf},
 };
 
-use rand::{distributions::Alphanumeric, Rng};
+use rand::{distr::Alphanumeric, Rng};
 use ring::signature::KeyPair;
 
 #[derive(clap::Parser)]
@@ -57,7 +57,7 @@ impl biurs_core::server::Server for Server {
         tx_res: tokio::sync::mpsc::Sender<biurs_core::types::auth::AuthenticateResponse>,
     ) -> Result<(), biurs_core::server::ServerError> {
         let challenge = biurs_core::types::auth::ChallengeClaims {
-            challenge: rand::thread_rng()
+            challenge: rand::rng()
                 .sample_iter(&Alphanumeric)
                 .take(7)
                 .map(char::from)

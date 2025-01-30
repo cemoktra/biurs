@@ -11,6 +11,7 @@ tonic-build = "0.9.2"
 [dependencies]
 async-trait.workspace = true
 futures.workspace = true
+futures-core.workspace = true
 jsonwebtoken.workspace = true
 prost.workspace = true
 prost-types.workspace = true
